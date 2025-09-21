@@ -101,7 +101,6 @@ class CodeAssessor:
                 ast.parse(code)
                 return 1.0
             elif language.lower() in ["javascript", "js"]:
-                # Basic JavaScript syntax check
                 if "function" in code or "=>" in code or "class" in code:
                     return 1.0
                 return 0.8
@@ -274,3 +273,4 @@ class CodeAssessor:
             suggestions.append("Great job! Your solution looks good.")
         
         return suggestions
+
