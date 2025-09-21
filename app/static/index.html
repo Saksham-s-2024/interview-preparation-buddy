@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI Video Interview Preparation Tool</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>AI Video Interview Preparation</h1>
+      <div id="setup">
+        <label>Role <input id="role" placeholder="e.g., Backend Engineer" /></label>
+        <label>Seniority <input id="seniority" placeholder="e.g., Junior / Mid / Senior" /></label>
+        <label>Preferred Programming Language 
+          <select id="programming-language">
+            <option value="">No coding questions</option>
+            <option value="python">Python</option>
+            <option value="javascript">JavaScript</option>
+            <option value="java">Java</option>
+            <option value="cpp">C++</option>
+            <option value="csharp">C#</option>
+            <option value="go">Go</option>
+            <option value="rust">Rust</option>
+          </select>
+        </label>
+        <div class="audio-controls">
+          <label><input type="checkbox" id="enable-voice" checked> Enable AI Voice</label>
+          <label>Voice Speed: <input type="range" id="voice-speed" min="0.5" max="2" step="0.1" value="1"></label>
+        </div>
+        <button id="start">Start Video Interview</button>
+      </div>
+      
+      <div id="interview" class="hidden">
+        <div class="video-container">
+          <video id="video" autoplay muted playsinline></video>
+          <canvas id="canvas" class="hidden"></canvas>
+          <div class="video-controls">
+            <button id="toggle-video">Enable Camera</button>
+            <span id="video-status">Camera Off</span>
+          </div>
+        </div>
+        
+        <div class="interview-content">
+          <div class="question-section">
+            <div class="question" id="question"></div>
+            <div class="question-controls">
+              <button id="play-question" class="hidden">🔊 Replay Question</button>
+              <button id="pause-audio" class="hidden">⏸️ Pause</button>
+              <span id="auto-play-status" class="auto-play-indicator">🎤 Auto-playing...</span>
+            </div>
+          </div>
+          <div class="input-section">
+            <div class="input-controls">
+              <button id="voice-input-btn" class="voice-btn">🎤 Voice Input</button>
+              <button id="text-input-btn" class="text-btn">✏️ Text Input</button>
+            </div>
+            <textarea id="answer" rows="6" placeholder="Type your answer or use voice input..."></textarea>
+            <div class="voice-status" id="voice-status"></div>
+            <button id="submit">Submit Answer</button>
+          </div>
+          
+          <!-- Coding Section -->
+          <div id="coding-section" class="hidden">
+            <div class="coding-header">
+              <h3>💻 Coding Challenge</h3>
+              <div class="coding-info">
+                <span id="coding-difficulty" class="difficulty-badge"></span>
+                <span id="coding-category" class="category-badge"></span>
+              </div>
+            </div>
+            
+            <div class="problem-statement">
+              <h4>Problem:</h4>
+              <div id="problem-text"></div>
+              
+              <h4>Examples:</h4>
+              <div id="examples-text"></div>
+              
+              <h4>Constraints:</h4>
+              <div id="constraints-text"></div>
+            </div>
+            
+            <div class="code-editor-section">
+              <div class="editor-header">
+                <label>Solution Code:</label>
+                <select id="code-language">
+                  <option value="python">Python</option>
+                  <option value="javascript">JavaScript</option>
+                  <option value="java">Java</option>
+                  <option value="cpp">C++</option>
+                </select>
+              </div>
+              <textarea id="code-editor" rows="15" placeholder="Write your solution here..."></textarea>
+              <div class="code-controls">
+                <button id="run-code">▶️ Run Code</button>
+                <button id="submit-code">✅ Submit Solution</button>
+              </div>
+            </div>
+            
+            <div id="coding-feedback" class="coding-feedback hidden"></div>
+          </div>
+          
+          <div class="feedback-section">
+            <div class="feedback" id="feedback"></div>
+            <div class="video-feedback" id="video-feedback"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div id="summary" class="hidden"></div>
+    </div>
+    <script src="/static/main.js"></script>
+  </body>
+  </html>
+
+
