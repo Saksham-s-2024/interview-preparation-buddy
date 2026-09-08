@@ -3,6 +3,7 @@ from typing import List, Optional, Dict, Tuple
 from .models import EvaluationResult
 
 
+
 OPENAI_ENABLED = bool(os.getenv("OPENAI_API_KEY"))
 
 
